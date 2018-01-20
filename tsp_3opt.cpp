@@ -33,9 +33,9 @@ int main()
 
 	// Variable declaration and initial conditions	
 
-	 char *inname = "eil76.txt";        			// file of city positions
+	char *inname = "eil51.txt";        			// file of city positions
 
-	const int N_max = 76;                    		// max number of cities
+	const int N_max = 51;                    		// max number of cities
 	const int L_optimum = 7542;
 
 	const int R = 20;                    			// number of replicas
@@ -504,9 +504,9 @@ int main()
 
 					timer = clock() * 0.001;
 
-					//if  ( L_best == L_optimum )
+				    if  ( L_best == L_optimum )
 
-						//cout << L_best << endl << timer - start_time << endl;
+					    cout << L_best << endl << timer - start_time << endl;
                
 				}
 
@@ -579,7 +579,6 @@ int main()
                     new_order [ istep ] = temp_order3 [ istep - counter1 - counter2 - 6 ];
 
 
-
                 counter4 = 0;
 
 
@@ -596,14 +595,11 @@ int main()
 
                     new_order [ istep ] = temp_order4 [ istep - counter1 - counter2 - counter3 - 6 ];
 
-
-				 
 				
 				for ( istep = 1; istep <= N; istep ++ )
 
                     order [ rstep ] [ istep ] = new_order [ istep ];
 
-                
                 
                 if ( L [ rstep ] < L_best )      // If current route is shorter than archived best, store
 				{
@@ -613,7 +609,7 @@ int main()
 
 					timer = clock() * 0.001;
 
-					//if  ( L_best == L_optimum )
+					if  ( L_best == L_optimum )
 
 						cout << L_best << endl << timer - start_time << endl;
                
@@ -622,13 +618,9 @@ int main()
 
 				opt_flag = 1;
 
-                				
-
 			}
 
 
-		
-			
 			if ( temp_total [ 3 ] == lowest_total  && opt_flag == 0 )
             {    
 
@@ -654,13 +646,9 @@ int main()
                     new_order[ istep ] = temp_order1 [ counter1 - istep + 3 ];
 
 
-				
                 new_order [ counter1+3 ] = selected_cities [ 4 ];
 
                 new_order [ counter1+4 ] = selected_cities [ 3 ];
-
-
-
 
 
 				counter2 = 0;
@@ -682,10 +670,6 @@ int main()
                 new_order [ counter1 + counter2 + 5 ] = selected_cities [ 5 ];
 
                 new_order [ counter1 + counter2 + 6 ] = selected_cities [ 6 ];
-
-
-
-
 
 
                 counter3 = 0;
@@ -722,14 +706,11 @@ int main()
 
                     new_order [ istep ] = temp_order4 [ istep - counter1 - counter2 - counter3 - 6 ];
 
-
-				 
 				
 				for ( istep = 1; istep <= N; istep ++ )
 
                     order [ rstep ] [ istep ] = new_order [ istep ];
 
-                
                 
                 if ( L [ rstep ] < L_best )      // If current route is shorter than archived best, store
 				{
@@ -739,7 +720,7 @@ int main()
 
 					timer = clock() * 0.001;
 
-					//if  ( L_best == L_optimum )
+					if  ( L_best == L_optimum )
 
 						cout << L_best << endl << timer - start_time << endl;
                
@@ -748,11 +729,7 @@ int main()
 
 				opt_flag = 1;
 
-                				
-
 			}
-
-
 
 			
 			if ( temp_total [ 4 ] == lowest_total && opt_flag == 0)
@@ -780,13 +757,9 @@ int main()
                     new_order[ istep ] = temp_order1 [ istep - 2 ];
 
 
-				
                 new_order [ counter1+3 ] = selected_cities [ 3 ];
 
                 new_order [ counter1+4 ] = selected_cities [ 4 ];
-
-
-
 
 
 				counter2 = 0;
@@ -804,14 +777,9 @@ int main()
                     new_order[ istep ] = temp_order2 [ istep - counter1 - 4 ];
 
 
-				
                 new_order [ counter1 + counter2 + 5 ] = selected_cities [ 2 ];
 
                 new_order [ counter1 + counter2 + 6 ] = selected_cities [ 6 ];
-
-
-
-
 
 
                 counter3 = 0;
@@ -831,7 +799,6 @@ int main()
                     new_order [ istep ] = temp_order3 [ istep - counter1 - counter2 - 6 ];
 
 
-
                 counter4 = 0;
 
 
@@ -849,13 +816,10 @@ int main()
                     new_order [ istep ] = temp_order4 [ istep - counter1 - counter2 - counter3 - 6 ];
 
 
-				 
-				
 				for ( istep = 1; istep <= N; istep ++ )
 
                     order [ rstep ] [ istep ] = new_order [ istep ];
 
-                
                 
                 if ( L [ rstep ] < L_best )      // If current route is shorter than archived best, store
 				{
@@ -865,23 +829,18 @@ int main()
 
 					timer = clock() * 0.001;
 
-					//if  ( L_best == L_optimum )
+					if  ( L_best == L_optimum )
 
 						cout << L_best << endl << timer - start_time << endl;
                
 				}
 
 
-
 				opt_flag = 1;
-
-                				
 
 			}
 
 
-
-				
 			if ( temp_total [ 5 ] == lowest_total && opt_flag == 0)
             {    
 
@@ -907,13 +866,9 @@ int main()
                     new_order[ istep ] = temp_order1 [ istep - 2 ];
 
 
-				
                 new_order [ counter1+3 ] = selected_cities [ 3 ];
 
                 new_order [ counter1+4 ] = selected_cities [ 2 ];
-
-
-
 
 
 				counter2 = 0;
@@ -930,15 +885,10 @@ int main()
 
                     new_order[ istep ] = temp_order2 [ counter1 + counter2 + 5 - istep  ];
 
-
 				
                 new_order [ counter1 + counter2 + 5 ] = selected_cities [ 4 ];
 
                 new_order [ counter1 + counter2 + 6 ] = selected_cities [ 6 ];
-
-
-
-
 
 
                 counter3 = 0;
@@ -958,7 +908,6 @@ int main()
                     new_order [ istep ] = temp_order3 [ istep - counter1 - counter2 - 6 ];
 
 
-
                 counter4 = 0;
 
 
@@ -975,15 +924,12 @@ int main()
 
                     new_order [ istep ] = temp_order4 [ istep - counter1 - counter2 - counter3 - 6 ];
 
-
-				 
 				
 				for ( istep = 1; istep <= N; istep ++ )
 
                     order [ rstep ] [ istep ] = new_order [ istep ];
 
-                
-                
+
                 if ( L [ rstep ] < L_best )      // If current route is shorter than archived best, store
 				{
                     L_best = L [ rstep ];
@@ -992,23 +938,18 @@ int main()
 
 					timer = clock() * 0.001;
 
-					//if  ( L_best == L_optimum )
+					if  ( L_best == L_optimum )
 
 						cout << L_best << endl << timer - start_time << endl;
                
 				}
 
 
-
 				opt_flag = 1;
-
-                				
 
 			}
 
 
-
-				
 			if ( temp_total [ 6 ] == lowest_total && opt_flag == 0)
             {    
 
@@ -1033,14 +974,10 @@ int main()
 
                     new_order[ istep ] = temp_order1 [ counter1 + 3 - istep ];
 
-
 				
                 new_order [ counter1+3 ] = selected_cities [ 5 ];
 
                 new_order [ counter1+4 ] = selected_cities [ 4 ];
-
-
-
 
 
 				counter2 = 0;
@@ -1057,15 +994,10 @@ int main()
 
                     new_order[ istep ] = temp_order2 [ istep - counter1 - 4 ];
 
-
 				
                 new_order [ counter1 + counter2 + 5 ] = selected_cities [ 2 ];
 
                 new_order [ counter1 + counter2 + 6 ] = selected_cities [ 6 ];
-
-
-
-
 
 
                 counter3 = 0;
@@ -1085,7 +1017,6 @@ int main()
                     new_order [ istep ] = temp_order3 [ istep - counter1 - counter2 - 6 ];
 
 
-
                 counter4 = 0;
 
 
@@ -1102,14 +1033,11 @@ int main()
 
                     new_order [ istep ] = temp_order4 [ istep - counter1 - counter2 - counter3 - 6 ];
 
-
-				 
 				
 				for ( istep = 1; istep <= N; istep ++ )
 
                     order [ rstep ] [ istep ] = new_order [ istep ];
 
-                
                 
                 if ( L [ rstep ] < L_best )      // If current route is shorter than archived best, store
 				{
@@ -1119,20 +1047,16 @@ int main()
 
 					timer = clock() * 0.001;
 
-					//if  ( L_best == L_optimum )
+					if  ( L_best == L_optimum )
 
 						cout << L_best << endl << timer - start_time << endl;
                
 				}
 
 
-
 				opt_flag = 1;
 
-                				
-
 			}
-
 
 
 			if ( temp_total [ 7 ] == lowest_total && opt_flag == 0)
@@ -1160,13 +1084,9 @@ int main()
                     new_order[ istep ] = temp_order1 [ counter1 + 3 - istep ];
 
 
-				
                 new_order [ counter1+3 ] = selected_cities [ 5 ];
 
                 new_order [ counter1+4 ] = selected_cities [ 2 ];
-
-
-
 
 
 				counter2 = 0;
@@ -1184,14 +1104,9 @@ int main()
                     new_order[ istep ] = temp_order2 [ counter1 + counter2 + 5 - istep ];
 
 
-				
                 new_order [ counter1 + counter2 + 5 ] = selected_cities [ 4 ];
 
                 new_order [ counter1 + counter2 + 6 ] = selected_cities [ 6 ];
-
-
-
-
 
 
                 counter3 = 0;
@@ -1211,7 +1126,6 @@ int main()
                     new_order [ istep ] = temp_order3 [ istep - counter1 - counter2 - 6 ];
 
 
-
                 counter4 = 0;
 
 
@@ -1228,14 +1142,11 @@ int main()
 
                     new_order [ istep ] = temp_order4 [ istep - counter1 - counter2 - counter3 - 6 ];
 
-
-				 
 				
 				for ( istep = 1; istep <= N; istep ++ )
 
                     order [ rstep ] [ istep ] = new_order [ istep ];
 
-                
                 
                 if ( L [ rstep ] < L_best )      // If current route is shorter than archived best, store
 				{
@@ -1245,29 +1156,22 @@ int main()
 
 					timer = clock() * 0.001;
 
-					//if  ( L_best == L_optimum )
+					if  ( L_best == L_optimum )
 
 						cout << L_best << endl << timer - start_time << endl;
                
 				}
 
 
-
 				opt_flag = 1;
-
-                				
 
 			}
 
-
 		}		
 
+    }
 
-}
-
-
-return 0;
-
+    return 0;
 
 }
 
