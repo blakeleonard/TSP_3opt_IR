@@ -574,38 +574,38 @@ int main()
 				}
 
 
-                for ( istep = (counter1 + counter2 + 7); istep <= (counter1 + counter2 + counter3 + 6); istep ++ )      // read in
+				for ( istep = (counter1 + counter2 + 7); istep <= (counter1 + counter2 + counter3 + 6); istep ++ )      // read in
 
-                    new_order [ istep ] = temp_order3 [ istep - counter1 - counter2 - 6 ];
-
-
-                counter4 = 0;
+					new_order [ istep ] = temp_order3 [ istep - counter1 - counter2 - 6 ];
 
 
-                for ( istep = 1; istep <= (randkvect [ 1 ] - 1); istep ++ )           // Capture order of cities between original 1st city and city 1
+				counter4 = 0;
+
+
+				for ( istep = 1; istep <= (randkvect [ 1 ] - 1); istep ++ )           // Capture order of cities between original 1st city and city 1
 				{
-                    counter4 = counter4 + 1;
+					counter4 = counter4 + 1;
 
-                    temp_order4 [ counter4 ] = order [ rstep ] [ istep ];
+					temp_order4 [ counter4 ] = order [ rstep ] [ istep ];
 
-                }
+				}
 
 
-                for ( istep = (counter1 + counter2 + counter3 + 7); istep <= (counter1 + counter2 + counter3 + counter4 + 6); istep ++ )         // read in
+				for ( istep = (counter1 + counter2 + counter3 + 7); istep <= (counter1 + counter2 + counter3 + counter4 + 6); istep ++ )         // read in
 
-                    new_order [ istep ] = temp_order4 [ istep - counter1 - counter2 - counter3 - 6 ];
+					new_order [ istep ] = temp_order4 [ istep - counter1 - counter2 - counter3 - 6 ];
 
 				
 				for ( istep = 1; istep <= N; istep ++ )
 
-                    order [ rstep ] [ istep ] = new_order [ istep ];
+					order [ rstep ] [ istep ] = new_order [ istep ];
 
                 
-                if ( L [ rstep ] < L_best )      // If current route is shorter than archived best, store
+				if ( L [ rstep ] < L_best )      // If current route is shorter than archived best, store
 				{
-                    L_best = L [ rstep ];
+					L_best = L [ rstep ];
 
-                    best_rep = rstep;
+					best_rep = rstep;
 
 					timer = clock() * 0.001;
 
@@ -622,101 +622,99 @@ int main()
 
 
 			if ( temp_total [ 3 ] == lowest_total  && opt_flag == 0 )
-            {    
+			{    
 
-                L [ rstep ] = L [ rstep ] - ( orig_total - temp_total [ 3 ] );
+				L [ rstep ] = L [ rstep ] - ( orig_total - temp_total [ 3 ] );
                 
-                new_order [ 1 ] = selected_cities [ 1 ];
+				new_order [ 1 ] = selected_cities [ 1 ];
 
-                new_order [ 2 ] = selected_cities [ 2 ];
+				new_order [ 2 ] = selected_cities [ 2 ];
 
 
-                counter1 = 0;
+				counter1 = 0;
 
-                for ( istep = (randkvect [ 1 ] + 2); istep <= ( randkvect [ 2 ] - 1); istep ++ )    // Capture order of cities between city 4 & 2 in original order
+				for ( istep = (randkvect [ 1 ] + 2); istep <= ( randkvect [ 2 ] - 1); istep ++ )    // Capture order of cities between city 4 & 2 in original order
 				{
-                    counter1 = counter1 + 1;
+					counter1 = counter1 + 1;
 
-                    temp_order1 [ counter1 ] = order [ rstep ] [ istep ];
+					temp_order1 [ counter1 ] = order [ rstep ] [ istep ];
 
-                }
+				}
 
-                for ( istep = 3; istep <= ( counter1 + 2 ); istep ++ )                               // read into new order backwards
+				for ( istep = 3; istep <= ( counter1 + 2 ); istep ++ )                               // read into new order backwards
 
-                    new_order[ istep ] = temp_order1 [ counter1 - istep + 3 ];
+				new_order[ istep ] = temp_order1 [ counter1 - istep + 3 ];
 
 
-                new_order [ counter1+3 ] = selected_cities [ 4 ];
+				new_order [ counter1+3 ] = selected_cities [ 4 ];
 
-                new_order [ counter1+4 ] = selected_cities [ 3 ];
+				new_order [ counter1+4 ] = selected_cities [ 3 ];
 
 
 				counter2 = 0;
 
-                for ( istep = (randkvect [ 2 ] + 2); istep <= ( randkvect [ 3 ] - 1); istep ++ )    // Capture order of cities between city 5 & 3 in original order
+				for ( istep = (randkvect [ 2 ] + 2); istep <= ( randkvect [ 3 ] - 1); istep ++ )    // Capture order of cities between city 5 & 3 in original order
 				{
-                    counter2 = counter2 + 1;
+					counter2 = counter2 + 1;
 
-                    temp_order2 [ counter2 ] = order [ rstep ] [ istep ];
+					temp_order2 [ counter2 ] = order [ rstep ] [ istep ];
 
-                }
+				}
 
-                for ( istep = (counter1+5); istep <= ( counter1 + counter2 + 4 ); istep ++ )                               // read into new order backwards
+				for ( istep = (counter1+5); istep <= ( counter1 + counter2 + 4 ); istep ++ )                               // read into new order backwards
 
-                    new_order[ istep ] = temp_order2 [ counter1 + counter2 + 5 - istep ];
-
-
-				
-                new_order [ counter1 + counter2 + 5 ] = selected_cities [ 5 ];
-
-                new_order [ counter1 + counter2 + 6 ] = selected_cities [ 6 ];
+					new_order[ istep ] = temp_order2 [ counter1 + counter2 + 5 - istep ];
 
 
-                counter3 = 0;
+				new_order [ counter1 + counter2 + 5 ] = selected_cities [ 5 ];
 
-                for ( istep = (randkvect [ 3 ] + 2); istep <= N; istep ++ )                     // Capture order of cities between city 6 and end in original order
+				new_order [ counter1 + counter2 + 6 ] = selected_cities [ 6 ];
+
+
+				counter3 = 0;
+
+				for ( istep = (randkvect [ 3 ] + 2); istep <= N; istep ++ )                     // Capture order of cities between city 6 and end in original order
 				{
 
-                    counter3= counter3 + 1;
+					counter3= counter3 + 1;
 
-                    temp_order3 [ counter3 ] = order [ rstep ] [ istep ];
+					temp_order3 [ counter3 ] = order [ rstep ] [ istep ];
 
-                }
-
-
-                for ( istep = (counter1 + counter2 + 7); istep <= (counter1 + counter2 + counter3 + 6); istep ++ )      // read in
-
-                    new_order [ istep ] = temp_order3 [ istep - counter1 - counter2 - 6 ];
+				}
 
 
+				for ( istep = (counter1 + counter2 + 7); istep <= (counter1 + counter2 + counter3 + 6); istep ++ )      // read in
 
-                counter4 = 0;
+					new_order [ istep ] = temp_order3 [ istep - counter1 - counter2 - 6 ];
 
 
-                for ( istep = 1; istep <= (randkvect [ 1 ] - 1); istep ++ )           // Capture order of cities between original 1st city and city 1
+				counter4 = 0;
+
+
+				for ( istep = 1; istep <= (randkvect [ 1 ] - 1); istep ++ )           // Capture order of cities between original 1st city and city 1
 				{
-                    counter4 = counter4 + 1;
+					counter4 = counter4 + 1;
 
-                    temp_order4 [ counter4 ] = order [ rstep ] [ istep ];
+					temp_order4 [ counter4 ] = order [ rstep ] [ istep ];
 
-                }
+				}
 
 
-                for ( istep = (counter1 + counter2 + counter3 + 7); istep <= (counter1 + counter2 + counter3 + counter4 + 6); istep ++ )         // read in
+				for ( istep = (counter1 + counter2 + counter3 + 7); istep <= (counter1 + counter2 + counter3 + counter4 + 6); istep ++ )         // read in
 
-                    new_order [ istep ] = temp_order4 [ istep - counter1 - counter2 - counter3 - 6 ];
+					new_order [ istep ] = temp_order4 [ istep - counter1 - counter2 - counter3 - 6 ];
 
 				
 				for ( istep = 1; istep <= N; istep ++ )
 
-                    order [ rstep ] [ istep ] = new_order [ istep ];
+					order [ rstep ] [ istep ] = new_order [ istep ];
 
                 
-                if ( L [ rstep ] < L_best )      // If current route is shorter than archived best, store
+				if ( L [ rstep ] < L_best )      // If current route is shorter than archived best, store
 				{
-                    L_best = L [ rstep ];
+					L_best = L [ rstep ];
 
-                    best_rep = rstep;
+					best_rep = rstep;
 
 					timer = clock() * 0.001;
 
@@ -733,99 +731,97 @@ int main()
 
 			
 			if ( temp_total [ 4 ] == lowest_total && opt_flag == 0)
-            {    
+			{    
 
-                L [ rstep ] = L [ rstep ] - ( orig_total - temp_total [ 4 ] );
+				L [ rstep ] = L [ rstep ] - ( orig_total - temp_total [ 4 ] );
                 
-                new_order [ 1 ] = selected_cities [ 1 ];
+				new_order [ 1 ] = selected_cities [ 1 ];
 
-                new_order [ 2 ] = selected_cities [ 5 ];
+				new_order [ 2 ] = selected_cities [ 5 ];
 
 
-                counter1 = 0;
+				counter1 = 0;
 
-                for ( istep = (randkvect [ 2 ] + 2); istep <= ( randkvect [ 3 ] - 1); istep ++ )    // Capture order of cities between city 5 & 3 in original order
+				for ( istep = (randkvect [ 2 ] + 2); istep <= ( randkvect [ 3 ] - 1); istep ++ )    // Capture order of cities between city 5 & 3 in original order
 				{
-                    counter1 = counter1 + 1;
+					counter1 = counter1 + 1;
 
-                    temp_order1 [ counter1 ] = order [ rstep ] [ istep ];
+					temp_order1 [ counter1 ] = order [ rstep ] [ istep ];
 
-                }
+				}
 
-                for ( istep = 3; istep <= ( counter1 + 2 ); istep ++ )                               // read into new order 
+				for ( istep = 3; istep <= ( counter1 + 2 ); istep ++ )                               // read into new order 
 
-                    new_order[ istep ] = temp_order1 [ istep - 2 ];
+					new_order[ istep ] = temp_order1 [ istep - 2 ];
 
 
-                new_order [ counter1+3 ] = selected_cities [ 3 ];
+				new_order [ counter1+3 ] = selected_cities [ 3 ];
 
-                new_order [ counter1+4 ] = selected_cities [ 4 ];
+				new_order [ counter1+4 ] = selected_cities [ 4 ];
 
 
 				counter2 = 0;
 
-                for ( istep = (randkvect [ 1 ] + 2); istep <= ( randkvect [ 2 ] - 1); istep ++ )    // Capture order of cities between city 2 & 4 in original order
+				for ( istep = (randkvect [ 1 ] + 2); istep <= ( randkvect [ 2 ] - 1); istep ++ )    // Capture order of cities between city 2 & 4 in original order
 				{
-                    counter2 = counter2 + 1;
+					counter2 = counter2 + 1;
 
-                    temp_order2 [ counter2 ] = order [ rstep ] [ istep ];
+					temp_order2 [ counter2 ] = order [ rstep ] [ istep ];
 
-                }
+				}
 
-                for ( istep = (counter1+5); istep <= ( counter1 + counter2 + 4 ); istep ++ )                               // read into new order
+				for ( istep = (counter1+5); istep <= ( counter1 + counter2 + 4 ); istep ++ )                               // read into new order
 
-                    new_order[ istep ] = temp_order2 [ istep - counter1 - 4 ];
-
-
-                new_order [ counter1 + counter2 + 5 ] = selected_cities [ 2 ];
-
-                new_order [ counter1 + counter2 + 6 ] = selected_cities [ 6 ];
+					new_order[ istep ] = temp_order2 [ istep - counter1 - 4 ];
 
 
-                counter3 = 0;
+				new_order [ counter1 + counter2 + 5 ] = selected_cities [ 2 ];
 
-                for ( istep = (randkvect [ 3 ] + 2); istep <= N; istep ++ )                     // Capture order of cities between city 6 and end in original order
+				new_order [ counter1 + counter2 + 6 ] = selected_cities [ 6 ];
+
+
+				counter3 = 0;
+
+				for ( istep = (randkvect [ 3 ] + 2); istep <= N; istep ++ )                     // Capture order of cities between city 6 and end in original order
 				{
 
-                    counter3= counter3 + 1;
+					counter3= counter3 + 1;
 
-                    temp_order3 [ counter3 ] = order [ rstep ] [ istep ];
+					temp_order3 [ counter3 ] = order [ rstep ] [ istep ];
 
-                }
-
-
-                for ( istep = (counter1 + counter2 + 7); istep <= (counter1 + counter2 + counter3 + 6); istep ++ )      // read in
-
-                    new_order [ istep ] = temp_order3 [ istep - counter1 - counter2 - 6 ];
+				}
 
 
-                counter4 = 0;
+				for ( istep = (counter1 + counter2 + 7); istep <= (counter1 + counter2 + counter3 + 6); istep ++ )      // read in
+
+					new_order [ istep ] = temp_order3 [ istep - counter1 - counter2 - 6 ];
 
 
-                for ( istep = 1; istep <= (randkvect [ 1 ] - 1); istep ++ )           // Capture order of cities between original 1st city and city 1
+				counter4 = 0;
+
+
+				for ( istep = 1; istep <= (randkvect [ 1 ] - 1); istep ++ )           // Capture order of cities between original 1st city and city 1
 				{
-                    counter4 = counter4 + 1;
+					counter4 = counter4 + 1;
 
-                    temp_order4 [ counter4 ] = order [ rstep ] [ istep ];
+					temp_order4 [ counter4 ] = order [ rstep ] [ istep ];
+				}
 
-                }
 
+				for ( istep = (counter1 + counter2 + counter3 + 7); istep <= (counter1 + counter2 + counter3 + counter4 + 6); istep ++ )         // read in
 
-                for ( istep = (counter1 + counter2 + counter3 + 7); istep <= (counter1 + counter2 + counter3 + counter4 + 6); istep ++ )         // read in
-
-                    new_order [ istep ] = temp_order4 [ istep - counter1 - counter2 - counter3 - 6 ];
-
+					new_order [ istep ] = temp_order4 [ istep - counter1 - counter2 - counter3 - 6 ];
 
 				for ( istep = 1; istep <= N; istep ++ )
 
-                    order [ rstep ] [ istep ] = new_order [ istep ];
+					order [ rstep ] [ istep ] = new_order [ istep ];
 
-                
-                if ( L [ rstep ] < L_best )      // If current route is shorter than archived best, store
+               
+				if ( L [ rstep ] < L_best )      // If current route is shorter than archived best, store
 				{
-                    L_best = L [ rstep ];
+					L_best = L [ rstep ];
 
-                    best_rep = rstep;
+					best_rep = rstep;
 
 					timer = clock() * 0.001;
 
@@ -835,106 +831,105 @@ int main()
                
 				}
 
-
 				opt_flag = 1;
 
 			}
 
 
 			if ( temp_total [ 5 ] == lowest_total && opt_flag == 0)
-            {    
+			{    
 
-                L [ rstep ] = L [ rstep ] - ( orig_total - temp_total [ 5 ] );
+				L [ rstep ] = L [ rstep ] - ( orig_total - temp_total [ 5 ] );
                 
-                new_order [ 1 ] = selected_cities [ 1 ];
+				new_order [ 1 ] = selected_cities [ 1 ];
 
-                new_order [ 2 ] = selected_cities [ 5 ];
+				new_order [ 2 ] = selected_cities [ 5 ];
 
 
-                counter1 = 0;
+				counter1 = 0;
 
-                for ( istep = (randkvect [ 2 ] + 2); istep <= ( randkvect [ 3 ] - 1); istep ++ )    // Capture order of cities between city 5 & 3 in original order
+				for ( istep = (randkvect [ 2 ] + 2); istep <= ( randkvect [ 3 ] - 1); istep ++ )    // Capture order of cities between city 5 & 3 in original order
 				{
-                    counter1 = counter1 + 1;
+					counter1 = counter1 + 1;
 
-                    temp_order1 [ counter1 ] = order [ rstep ] [ istep ];
+					temp_order1 [ counter1 ] = order [ rstep ] [ istep ];
 
-                }
+				}
 
-                for ( istep = 3; istep <= ( counter1 + 2 ); istep ++ )                               // read into new order 
+				for ( istep = 3; istep <= ( counter1 + 2 ); istep ++ )                               // read into new order 
 
-                    new_order[ istep ] = temp_order1 [ istep - 2 ];
+					new_order[ istep ] = temp_order1 [ istep - 2 ];
 
 
-                new_order [ counter1+3 ] = selected_cities [ 3 ];
+				new_order [ counter1+3 ] = selected_cities [ 3 ];
 
-                new_order [ counter1+4 ] = selected_cities [ 2 ];
+				new_order [ counter1+4 ] = selected_cities [ 2 ];
 
 
 				counter2 = 0;
 
-                for ( istep = (randkvect [ 1 ] + 2); istep <= ( randkvect [ 2 ] - 1); istep ++ )    // Capture order of cities between city 2 & 4 in original order
+				for ( istep = (randkvect [ 1 ] + 2); istep <= ( randkvect [ 2 ] - 1); istep ++ )    // Capture order of cities between city 2 & 4 in original order
 				{
-                    counter2 = counter2 + 1;
+					counter2 = counter2 + 1;
 
-                    temp_order2 [ counter2 ] = order [ rstep ] [ istep ];
+					temp_order2 [ counter2 ] = order [ rstep ] [ istep ];
 
-                }
+				}
 
-                for ( istep = (counter1+5); istep <= ( counter1 + counter2 + 4 ); istep ++ )                               // read into new order backwards
+				for ( istep = (counter1+5); istep <= ( counter1 + counter2 + 4 ); istep ++ )                               // read into new order backwards
 
-                    new_order[ istep ] = temp_order2 [ counter1 + counter2 + 5 - istep  ];
+					new_order[ istep ] = temp_order2 [ counter1 + counter2 + 5 - istep  ];
 
 				
-                new_order [ counter1 + counter2 + 5 ] = selected_cities [ 4 ];
+				new_order [ counter1 + counter2 + 5 ] = selected_cities [ 4 ];
 
-                new_order [ counter1 + counter2 + 6 ] = selected_cities [ 6 ];
+				new_order [ counter1 + counter2 + 6 ] = selected_cities [ 6 ];
 
 
-                counter3 = 0;
+				counter3 = 0;
 
-                for ( istep = (randkvect [ 3 ] + 2); istep <= N; istep ++ )                     // Capture order of cities between city 6 and end in original order
+				for ( istep = (randkvect [ 3 ] + 2); istep <= N; istep ++ )                     // Capture order of cities between city 6 and end in original order
 				{
 
-                    counter3= counter3 + 1;
+					counter3= counter3 + 1;
 
-                    temp_order3 [ counter3 ] = order [ rstep ] [ istep ];
+					temp_order3 [ counter3 ] = order [ rstep ] [ istep ];
 
-                }
-
-
-                for ( istep = (counter1 + counter2 + 7); istep <= (counter1 + counter2 + counter3 + 6); istep ++ )      // read in
-
-                    new_order [ istep ] = temp_order3 [ istep - counter1 - counter2 - 6 ];
+				}
 
 
-                counter4 = 0;
+				for ( istep = (counter1 + counter2 + 7); istep <= (counter1 + counter2 + counter3 + 6); istep ++ )      // read in
+
+					new_order [ istep ] = temp_order3 [ istep - counter1 - counter2 - 6 ];
 
 
-                for ( istep = 1; istep <= (randkvect [ 1 ] - 1); istep ++ )           // Capture order of cities between original 1st city and city 1
+				counter4 = 0;
+
+
+				for ( istep = 1; istep <= (randkvect [ 1 ] - 1); istep ++ )           // Capture order of cities between original 1st city and city 1
 				{
-                    counter4 = counter4 + 1;
+					counter4 = counter4 + 1;
 
-                    temp_order4 [ counter4 ] = order [ rstep ] [ istep ];
+					temp_order4 [ counter4 ] = order [ rstep ] [ istep ];
 
-                }
+				}
 
 
-                for ( istep = (counter1 + counter2 + counter3 + 7); istep <= (counter1 + counter2 + counter3 + counter4 + 6); istep ++ )         // read in
+				for ( istep = (counter1 + counter2 + counter3 + 7); istep <= (counter1 + counter2 + counter3 + counter4 + 6); istep ++ )         // read in
 
-                    new_order [ istep ] = temp_order4 [ istep - counter1 - counter2 - counter3 - 6 ];
+				new_order [ istep ] = temp_order4 [ istep - counter1 - counter2 - counter3 - 6 ];
 
 				
 				for ( istep = 1; istep <= N; istep ++ )
 
-                    order [ rstep ] [ istep ] = new_order [ istep ];
+					order [ rstep ] [ istep ] = new_order [ istep ];
 
 
-                if ( L [ rstep ] < L_best )      // If current route is shorter than archived best, store
+				if ( L [ rstep ] < L_best )      // If current route is shorter than archived best, store
 				{
-                    L_best = L [ rstep ];
+					L_best = L [ rstep ];
 
-                    best_rep = rstep;
+					best_rep = rstep;
 
 					timer = clock() * 0.001;
 
@@ -951,99 +946,99 @@ int main()
 
 
 			if ( temp_total [ 6 ] == lowest_total && opt_flag == 0)
-            {    
+			{    
 
-                L [ rstep ] = L [ rstep ] - ( orig_total - temp_total [ 6 ] );
+				L [ rstep ] = L [ rstep ] - ( orig_total - temp_total [ 6 ] );
                 
-                new_order [ 1 ] = selected_cities [ 1 ];
+				new_order [ 1 ] = selected_cities [ 1 ];
 
-                new_order [ 2 ] = selected_cities [ 3 ];
+				new_order [ 2 ] = selected_cities [ 3 ];
 
 
-                counter1 = 0;
+				counter1 = 0;
 
-                for ( istep = (randkvect [ 2 ] + 2); istep <= ( randkvect [ 3 ] - 1); istep ++ )    // Capture order of cities between city 5 & 3 in original order
+				for ( istep = (randkvect [ 2 ] + 2); istep <= ( randkvect [ 3 ] - 1); istep ++ )    // Capture order of cities between city 5 & 3 in original order
 				{
-                    counter1 = counter1 + 1;
+					counter1 = counter1 + 1;
 
-                    temp_order1 [ counter1 ] = order [ rstep ] [ istep ];
+					temp_order1 [ counter1 ] = order [ rstep ] [ istep ];
 
-                }
+				}
 
-                for ( istep = 3; istep <= ( counter1 + 2 ); istep ++ )                               // read into new order backwards
+				for ( istep = 3; istep <= ( counter1 + 2 ); istep ++ )                               // read into new order backwards
 
-                    new_order[ istep ] = temp_order1 [ counter1 + 3 - istep ];
+					new_order[ istep ] = temp_order1 [ counter1 + 3 - istep ];
 
 				
-                new_order [ counter1+3 ] = selected_cities [ 5 ];
+				new_order [ counter1+3 ] = selected_cities [ 5 ];
 
-                new_order [ counter1+4 ] = selected_cities [ 4 ];
+				new_order [ counter1+4 ] = selected_cities [ 4 ];
 
 
 				counter2 = 0;
 
-                for ( istep = (randkvect [ 1 ] + 2); istep <= ( randkvect [ 2 ] - 1); istep ++ )    // Capture order of cities between city 2 & 4 in original order
+				for ( istep = (randkvect [ 1 ] + 2); istep <= ( randkvect [ 2 ] - 1); istep ++ )    // Capture order of cities between city 2 & 4 in original order
 				{
-                    counter2 = counter2 + 1;
+					counter2 = counter2 + 1;
 
-                    temp_order2 [ counter2 ] = order [ rstep ] [ istep ];
+					temp_order2 [ counter2 ] = order [ rstep ] [ istep ];
 
-                }
+				}
 
-                for ( istep = (counter1+5); istep <= ( counter1 + counter2 + 4 ); istep ++ )                               // read into new order
+				for ( istep = (counter1+5); istep <= ( counter1 + counter2 + 4 ); istep ++ )                               // read into new order
 
-                    new_order[ istep ] = temp_order2 [ istep - counter1 - 4 ];
+					new_order[ istep ] = temp_order2 [ istep - counter1 - 4 ];
 
 				
-                new_order [ counter1 + counter2 + 5 ] = selected_cities [ 2 ];
+				new_order [ counter1 + counter2 + 5 ] = selected_cities [ 2 ];
 
-                new_order [ counter1 + counter2 + 6 ] = selected_cities [ 6 ];
+				new_order [ counter1 + counter2 + 6 ] = selected_cities [ 6 ];
 
 
-                counter3 = 0;
+				counter3 = 0;
 
-                for ( istep = (randkvect [ 3 ] + 2); istep <= N; istep ++ )                     // Capture order of cities between city 6 and end in original order
+				for ( istep = (randkvect [ 3 ] + 2); istep <= N; istep ++ )                     // Capture order of cities between city 6 and end in original order
 				{
 
-                    counter3= counter3 + 1;
+					counter3= counter3 + 1;
 
-                    temp_order3 [ counter3 ] = order [ rstep ] [ istep ];
+					temp_order3 [ counter3 ] = order [ rstep ] [ istep ];
 
-                }
-
-
-                for ( istep = (counter1 + counter2 + 7); istep <= (counter1 + counter2 + counter3 + 6); istep ++ )      // read in
-
-                    new_order [ istep ] = temp_order3 [ istep - counter1 - counter2 - 6 ];
+				}
 
 
-                counter4 = 0;
+				for ( istep = (counter1 + counter2 + 7); istep <= (counter1 + counter2 + counter3 + 6); istep ++ )      // read in
+
+					new_order [ istep ] = temp_order3 [ istep - counter1 - counter2 - 6 ];
 
 
-                for ( istep = 1; istep <= (randkvect [ 1 ] - 1); istep ++ )           // Capture order of cities between original 1st city and city 1
+				counter4 = 0;
+
+
+				for ( istep = 1; istep <= (randkvect [ 1 ] - 1); istep ++ )           // Capture order of cities between original 1st city and city 1
 				{
-                    counter4 = counter4 + 1;
+					counter4 = counter4 + 1;
 
-                    temp_order4 [ counter4 ] = order [ rstep ] [ istep ];
+					temp_order4 [ counter4 ] = order [ rstep ] [ istep ];
 
-                }
+				}
 
 
-                for ( istep = (counter1 + counter2 + counter3 + 7); istep <= (counter1 + counter2 + counter3 + counter4 + 6); istep ++ )         // read in
+				for ( istep = (counter1 + counter2 + counter3 + 7); istep <= (counter1 + counter2 + counter3 + counter4 + 6); istep ++ )         // read in
 
-                    new_order [ istep ] = temp_order4 [ istep - counter1 - counter2 - counter3 - 6 ];
+					new_order [ istep ] = temp_order4 [ istep - counter1 - counter2 - counter3 - 6 ];
 
 				
 				for ( istep = 1; istep <= N; istep ++ )
 
-                    order [ rstep ] [ istep ] = new_order [ istep ];
+					order [ rstep ] [ istep ] = new_order [ istep ];
 
                 
-                if ( L [ rstep ] < L_best )      // If current route is shorter than archived best, store
+				if ( L [ rstep ] < L_best )      // If current route is shorter than archived best, store
 				{
-                    L_best = L [ rstep ];
+					L_best = L [ rstep ];
 
-                    best_rep = rstep;
+					best_rep = rstep;
 
 					timer = clock() * 0.001;
 
@@ -1060,99 +1055,99 @@ int main()
 
 
 			if ( temp_total [ 7 ] == lowest_total && opt_flag == 0)
-            {    
+			{    
 
-                L [ rstep ] = L [ rstep ] - ( orig_total - temp_total [ 7 ] );
+				L [ rstep ] = L [ rstep ] - ( orig_total - temp_total [ 7 ] );
                 
-                new_order [ 1 ] = selected_cities [ 1 ];
+				new_order [ 1 ] = selected_cities [ 1 ];
 
-                new_order [ 2 ] = selected_cities [ 3 ];
+				new_order [ 2 ] = selected_cities [ 3 ];
 
 
-                counter1 = 0;
+				counter1 = 0;
 
-                for ( istep = (randkvect [ 2 ] + 2); istep <= ( randkvect [ 3 ] - 1); istep ++ )    // Capture order of cities between city 5 & 3 in original order
+				for ( istep = (randkvect [ 2 ] + 2); istep <= ( randkvect [ 3 ] - 1); istep ++ )    // Capture order of cities between city 5 & 3 in original order
 				{
-                    counter1 = counter1 + 1;
+					counter1 = counter1 + 1;
 
-                    temp_order1 [ counter1 ] = order [ rstep ] [ istep ];
+					temp_order1 [ counter1 ] = order [ rstep ] [ istep ];
 
-                }
+				}
 
-                for ( istep = 3; istep <= ( counter1 + 2 ); istep ++ )                               // read into new order backwards
+				for ( istep = 3; istep <= ( counter1 + 2 ); istep ++ )                               // read into new order backwards
 
-                    new_order[ istep ] = temp_order1 [ counter1 + 3 - istep ];
+					new_order[ istep ] = temp_order1 [ counter1 + 3 - istep ];
 
 
-                new_order [ counter1+3 ] = selected_cities [ 5 ];
+				new_order [ counter1+3 ] = selected_cities [ 5 ];
 
-                new_order [ counter1+4 ] = selected_cities [ 2 ];
+				new_order [ counter1+4 ] = selected_cities [ 2 ];
 
 
 				counter2 = 0;
 
-                for ( istep = (randkvect [ 1 ] + 2); istep <= ( randkvect [ 2 ] - 1); istep ++ )    // Capture order of cities between city 2 & 4 in original order
+				for ( istep = (randkvect [ 1 ] + 2); istep <= ( randkvect [ 2 ] - 1); istep ++ )    // Capture order of cities between city 2 & 4 in original order
 				{
-                    counter2 = counter2 + 1;
+					counter2 = counter2 + 1;
 
-                    temp_order2 [ counter2 ] = order [ rstep ] [ istep ];
+					temp_order2 [ counter2 ] = order [ rstep ] [ istep ];
 
-                }
+				}
 
-                for ( istep = (counter1+5); istep <= ( counter1 + counter2 + 4 ); istep ++ )            // read into new order backwards
+				for ( istep = (counter1+5); istep <= ( counter1 + counter2 + 4 ); istep ++ )            // read into new order backwards
 
-                    new_order[ istep ] = temp_order2 [ counter1 + counter2 + 5 - istep ];
-
-
-                new_order [ counter1 + counter2 + 5 ] = selected_cities [ 4 ];
-
-                new_order [ counter1 + counter2 + 6 ] = selected_cities [ 6 ];
+					new_order[ istep ] = temp_order2 [ counter1 + counter2 + 5 - istep ];
 
 
-                counter3 = 0;
+				new_order [ counter1 + counter2 + 5 ] = selected_cities [ 4 ];
 
-                for ( istep = (randkvect [ 3 ] + 2); istep <= N; istep ++ )                     // Capture order of cities between city 6 and end in original order
+				new_order [ counter1 + counter2 + 6 ] = selected_cities [ 6 ];
+
+
+				counter3 = 0;
+
+				for ( istep = (randkvect [ 3 ] + 2); istep <= N; istep ++ )                     // Capture order of cities between city 6 and end in original order
 				{
 
-                    counter3= counter3 + 1;
+					counter3= counter3 + 1;
 
-                    temp_order3 [ counter3 ] = order [ rstep ] [ istep ];
+					temp_order3 [ counter3 ] = order [ rstep ] [ istep ];
 
-                }
-
-
-                for ( istep = (counter1 + counter2 + 7); istep <= (counter1 + counter2 + counter3 + 6); istep ++ )      // read in
-
-                    new_order [ istep ] = temp_order3 [ istep - counter1 - counter2 - 6 ];
+				}
 
 
-                counter4 = 0;
+				for ( istep = (counter1 + counter2 + 7); istep <= (counter1 + counter2 + counter3 + 6); istep ++ )      // read in
+
+					new_order [ istep ] = temp_order3 [ istep - counter1 - counter2 - 6 ];
 
 
-                for ( istep = 1; istep <= (randkvect [ 1 ] - 1); istep ++ )           // Capture order of cities between original 1st city and city 1
+				counter4 = 0;
+
+
+				for ( istep = 1; istep <= (randkvect [ 1 ] - 1); istep ++ )           // Capture order of cities between original 1st city and city 1
 				{
-                    counter4 = counter4 + 1;
+					counter4 = counter4 + 1;
 
-                    temp_order4 [ counter4 ] = order [ rstep ] [ istep ];
+					temp_order4 [ counter4 ] = order [ rstep ] [ istep ];
 
-                }
+				}
 
 
-                for ( istep = (counter1 + counter2 + counter3 + 7); istep <= (counter1 + counter2 + counter3 + counter4 + 6); istep ++ )         // read in
+				for ( istep = (counter1 + counter2 + counter3 + 7); istep <= (counter1 + counter2 + counter3 + counter4 + 6); istep ++ )         // read in
 
-                    new_order [ istep ] = temp_order4 [ istep - counter1 - counter2 - counter3 - 6 ];
+					new_order [ istep ] = temp_order4 [ istep - counter1 - counter2 - counter3 - 6 ];
 
 				
 				for ( istep = 1; istep <= N; istep ++ )
 
-                    order [ rstep ] [ istep ] = new_order [ istep ];
+					order [ rstep ] [ istep ] = new_order [ istep ];
 
                 
-                if ( L [ rstep ] < L_best )      // If current route is shorter than archived best, store
+				if ( L [ rstep ] < L_best )      // If current route is shorter than archived best, store
 				{
-                    L_best = L [ rstep ];
+					L_best = L [ rstep ];
 
-                    best_rep = rstep;
+					best_rep = rstep;
 
 					timer = clock() * 0.001;
 
@@ -1169,9 +1164,9 @@ int main()
 
 		}		
 
-    }
+	}
 
-    return 0;
+	return 0;
 
 }
 
